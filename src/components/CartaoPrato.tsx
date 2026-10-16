@@ -1,6 +1,7 @@
 import type { Prato } from '../types';
 import Preco from './Preco';
 import Etiqueta from './Etiqueta';
+import Alergenios from './Alergenios';
 
 type CartaoPratoProps = {
   prato: Prato;
@@ -14,12 +15,13 @@ export default function CartaoPrato({ prato }: CartaoPratoProps) {
         <Preco valor={prato.preco} />
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
-        {prato.vegetariano && <Etiqueta texto="Vegetariano" />}
-        {prato.alergenios.map((alergenio) => (
-          <Etiqueta key={alergenio} texto={alergenio} variante="aviso" />
-        ))}
-      </div>
+      {prato.vegetariano && (
+        <div className="mt-3">
+          <Etiqueta texto="Vegetariano" />
+        </div>
+      )}
+
+      <Alergenios lista={prato.alergenios} />
     </article>
   );
 }

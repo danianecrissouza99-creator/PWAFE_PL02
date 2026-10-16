@@ -18,3 +18,7 @@ O tipo `Categoria` só aceita `'sopa'`, `'prato'` ou `'sobremesa'`. Como `'bebid
 | 2 | build | TS2339: `Property 'preco' does not exist on type 'JSX.IntrinsicElements'` | Escrevi `<Preco>` com maiúscula. Em minúscula o JSX acha que é uma tag HTML. Isto também fez desaparecer o TS6133 (`'Preco' is declared but never read`) |
 | 3 | build | TS2304: `Cannot find name 'Etiqueta'` | Faltava o import: `import Etiqueta from './Etiqueta'` |
 | 4 | consola | `Each child in a list should have a unique "key" prop.` | Pus `key={a}` no `<span>` dentro do `map` |
+
+## Extras · key={indice}
+
+Com `key={indice}` funciona e não aparece aviso, mas dá problemas quando a lista muda de ordem ou quando se tiram ou acrescentam pratos (por exemplo, com o filtro vegetariano ou ao ordenar por preço). O índice passa a corresponder a outro prato e o React pode reaproveitar o cartão errado. O `id` é sempre o mesmo para cada prato, por isso é a `key` certa.

@@ -20,3 +20,5 @@
 - Os componentes têm de começar com maiúscula; em minúscula o JSX acha que é uma tag HTML.
 - Quando se usa `map`, cada elemento precisa de uma `key`. Esse erro só aparece na consola, não no build.
 - Usar `lista.length === 0 ? ... : ...` em vez de `&&` evita aparecer um `0` no ecrã.
+
+- O código dos extras (`Alergenios`, preço médio com `reduce`) e a explicação sobre `key={indice}`.
