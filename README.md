@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# pwafe-pl02 · Ementa da cantina
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Ementa do dia de uma cantina, feita em React + TypeScript com Vite e Tailwind CSS v4.
+Mostra os pratos por categoria (sopas, pratos principais e sobremesas), com preço, etiqueta de vegetariano e alergénios.
 
-Currently, two official plugins are available:
+Projecto da PL02 de Programação Web Avançada para Front-End (ISTEC Porto).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Como correr
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Para gerar a versão final:
+
+```
+npm run build
+```
+
+## Estrutura das pastas
+
+```
+src/
+├── components/
+│   ├── CartaoPrato.tsx   # cartão de um prato (nome, preço, etiquetas)
+│   ├── Etiqueta.tsx      # etiqueta verde (normal) ou amarela (aviso)
+│   ├── ListaPratos.tsx   # grelha de cartões ou mensagem de lista vazia
+│   ├── Preco.tsx         # mostra o preço no formato 5,50 €
+│   └── Seccao.tsx        # secção com título e children
+├── data/
+│   └── pratos.ts         # lista dos pratos da ementa
+├── types.ts              # tipos Categoria e Prato
+├── App.tsx               # página principal
+├── main.tsx
+└── index.css             # @import "tailwindcss"
+```
